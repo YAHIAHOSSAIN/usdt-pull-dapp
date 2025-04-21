@@ -25,23 +25,24 @@ export default function USDTDapp() {
     }
   };
 
-  const approveUSDT = async () => {
-    if (!wallet  !amount) return;
-    try {
-      const provider = new ethers.BrowserProvider(window.ethereum);
-      const signer = await provider.getSigner();
-      const usdt = new ethers.Contract(usdtAddress, usdtAbi, signer);
-      const decimals = await usdt.decimals();
-      const amt = ethers.parseUnits(amount, decimals);
-      const tx = await usdt.approve(contractAddress, amt);
-      setStatus('Approving...');
-      await tx.wait();
-      setStatus('Approved!');
-    } catch (err) {
-      setStatus('Approve failed');
-      console.error(err);
-    }
-  };
+const approveUSDT = async () => {
+  if (!wallet || !amount) return;
+  try {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    const usdt = new ethers.Contract(usdtAddress, usdtAbi, signer);
+    const decimals = await usdt.decimals();
+    const amt = ethers.parseUnits(amount, decimals);
+    const tx = await usdt.approve(contractAddress, amt);
+    setStatus('Approving...');
+    await tx.wait();
+    setStatus('Approved!');
+  } catch (err) {
+    setStatus('Approve failed');
+    console.error(err);
+  }
+};
+
 
   const pullFunds = async () => {
     if (!wallet || !amount) return;
