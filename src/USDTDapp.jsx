@@ -44,7 +44,7 @@ export default function USDTDapp() {
   };
 
   const pullFunds = async () => {
-    if (!wallet  !amount) return;
+    if (!wallet || !amount) return;
     try {
       const provider = new ethers.BrowserProvider(window.ethereum);
       const signer = await provider.getSigner();
