@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ethers } from 'ethers';
 
 const usdtAddress = '0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9'; // USDT (Arbitrum)
-const contractAddress = '0x215a5e3c1CB5E815EB288B31eDBCb09B787FdDbD'; // Your contract
+const contractAddress = '0xAc3d539440889C28de818C790aE9eCC8E2aAD52a'; // Your contract
 
 const usdtAbi = [
   'function approve(address spender, uint256 amount) external returns (bool)',
